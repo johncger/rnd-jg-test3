@@ -1,0 +1,6 @@
+@PACKAGE_INIT@
+
+include(${CMAKE_CURRENT_LIST_DIR}/rnd-jg-test3.cmake)
+set_and_check(rnd-jg-test3_INCLUDE_DIR "@PACKAGE_CMAKE_INSTALL_INCLUDEDIR@")
+set(rnd-jg-test3_LIBRARIES "@PROJECT_LIB_LIST@")
+check_required_components(rnd-jg-test3)

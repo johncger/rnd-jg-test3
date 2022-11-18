@@ -1,0 +1,181 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "editor.fontSize": 14,
+        "editor.wordWrapColumn": 150,
+        "editor.formatOnSave": true,
+        "editor.tabSize": 4,
+        "editor.detectIndentation": false,
+        "editor.insertSpaces": true,
+        "editor.bracketPairColorization.enabled": true,
+        // "editor.guides.bracketPairs": "active",
+        "editor.guides.indentation": true,
+        "git.autofetch": "all",
+        "git.autofetchPeriod": 7200,
+        "git.autoStash": true,
+        "files.autoSave": "afterDelay",
+        "files.autoSaveDelay": 10000,
+        "files.watcherExclude": {
+            "**/.git/objects/**": true,
+            "**/.git/subtree-cache/**": true,
+            "**/node_modules/**": true,
+            "**/.hg/store/**": true,
+            "**/.cache/**": true
+        },
+        "clangd.checkUpdates": true,
+        "clangd.detectExtensionConflicts": true,
+        "clangd.onConfigChanged": "restart",
+        "[cpp]": {
+            "editor.wordBasedSuggestions": false,
+            "editor.suggest.insertMode": "replace",
+            "editor.semanticHighlighting.enabled": true,
+            "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd",
+            "editor.autoIndent": "advanced",
+            "editor.tabSize": 4,
+            "editor.detectIndentation": false,
+            "editor.insertSpaces": true
+        },
+        "[json]": {
+            "editor.quickSuggestions": {
+                "strings": true
+            },
+            "editor.suggest.insertMode": "replace",
+            "editor.defaultFormatter": "vscode.json-language-features"
+        },
+        "files.associations": {
+            ".clang-format": "yaml",
+            ".clang-tidy": "yaml",
+            ".clang-tidy-ignore": "yaml",
+            "array": "cpp",
+            "*.tcc": "cpp",
+            "cctype": "cpp",
+            "chrono": "cpp",
+            "clocale": "cpp",
+            "cmath": "cpp",
+            "condition_variable": "cpp",
+            "cstddef": "cpp",
+            "cstdint": "cpp",
+            "cstdio": "cpp",
+            "cstdlib": "cpp",
+            "cstring": "cpp",
+            "ctime": "cpp",
+            "cwchar": "cpp",
+            "cwctype": "cpp",
+            "deque": "cpp",
+            "forward_list": "cpp",
+            "unordered_map": "cpp",
+            "vector": "cpp",
+            "exception": "cpp",
+            "fstream": "cpp",
+            "functional": "cpp",
+            "initializer_list": "cpp",
+            "iomanip": "cpp",
+            "iosfwd": "cpp",
+            "iostream": "cpp",
+            "istream": "cpp",
+            "limits": "cpp",
+            "memory": "cpp",
+            "mutex": "cpp",
+            "new": "cpp",
+            "numeric": "cpp",
+            "optional": "cpp",
+            "ostream": "cpp",
+            "ratio": "cpp",
+            "sstream": "cpp",
+            "stdexcept": "cpp",
+            "streambuf": "cpp",
+            "string_view": "cpp",
+            "system_error": "cpp",
+            "thread": "cpp",
+            "type_traits": "cpp",
+            "tuple": "cpp",
+            "typeinfo": "cpp",
+            "utility": "cpp",
+            "valarray": "Configure the opener to use for external URIs (http, https).",
+            "cstdarg": "cpp",
+            "atomic": "cpp",
+            "complex": "cpp",
+            "algorithm": "cpp",
+            "iterator": "cpp",
+            "memory_resource": "cpp",
+            "random": "cpp",
+            "string": "cpp"
+        },
+        "testMate.cpp.test.executables": "{build,Build,BUILD,out,Out,OUT}/**/*{test,Test,TEST}*",
+        "testMate.cpp.test.workingDirectory": "${workspaceFolder}/test/",
+        "shellcheck.useWorkspaceRootAsCwd": true,
+        "psi-header.config": {
+            "company": "Harvest Technology Group Pty Ltd",
+            "license": "Proprietary",
+            "forceToTop": true,
+            "blankLinesAfter": 0,
+        },
+        "psi-header.variables": [],
+        "psi-header.lang-config": [
+            {
+                "language": "cmake",
+                "prefix": "#",
+                "begin": "#",
+                "end": "#",
+            }
+        ],
+        "psi-header.templates": [
+            {
+                "language": "cmake",
+                "template": [
+                    " Copyright (c) <<yeartoyear(fc!P,now)>> <<company>>. All Rights Reserved.",
+                ]
+            },
+            {
+                "language": "cpp",
+                "template": [
+                    "Copyright (c) <<yeartoyear(fc!P,now)>> <<company>>. All Rights Reserved.",
+                    "@file <<filename>>",
+                    "@brief ",
+                    "@date <<filecreated('DD/MM/YYYY')>>",
+                    "@author <<author>>",
+                    "@version 1.00",
+                    "See the COPYRIGHT file at the top-level directory of this distribution for details of code ownership.",
+                    "-----",
+                    "Last Modified: <<filecreated('DD/MM/YYYY')>>",
+                    "Modified By: <<author>>",
+                    "-----",
+                    "HISTORY:"
+                ],
+                "changeLogCaption": "HISTORY:"
+            },
+            {
+                "language": ".cu",
+                "mapTo": "cpp"
+            },
+            {
+                "language": ".cuh",
+                "mapTo": "cpp"
+            },
+            {
+                "language": "c",
+                "mapTo": "cpp"
+            }
+        ]
+    },
+    "extensions": {
+        "recommendations": [
+            "jeff-hykin.better-cpp-syntax",
+            "twxs.cmake",
+            "ms-vscode.cmake-tools",
+            "cschlosser.doxdocgen",
+            "ms-vscode.cpptools",
+            "timonwong.shellcheck",
+            "llvm-vs-code-extensions.vscode-clangd",
+            "donjayamanne.githistory",
+            "matepek.vscode-catch2-test-adapter",
+            "cheshirekow.cmake-format",
+            "psioniq.psi-header",
+            "1nVitr0.valgrind-task-integration"
+        ]
+    }
+}
