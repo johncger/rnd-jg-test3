@@ -119,9 +119,20 @@ install(EXPORT ${PROJECT_NAME}
 
 # Create the package configuration file
 include(CMakePackageConfigHelpers)
-
+# Create the template file first
+set(_templateFile ${CMAKE_SOURCE_DIR}/cmake/${PROJECT_NAME}Config.cmake.template)
+if (EXISTS ${_templateFile})
+    message(STATUS "Template file ${_templateFile}")
+else()
+    file(WRITE ${_templateFile}
+               "@PACKAGE_INIT@\n"
+               "include($""{CMAKE_CURRENT_LIST_DIR}/${PROJECT_NAME}.cmake)\n"
+               "set_and_check(${PROJECT_NAME}_INCLUDE_DIR "@PACKAGE_CMAKE_INSTALL_INCLUDEDIR@")\n"
+               "set(${PROJECT_NAME}_LIBRARIES "@PROJECT_LIB_LIST@")\n"
+              "check_required_components(${PROJECT_NAME})\n"
+    )
+endif()
 set(_packageConfigFile ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake)
-# PROJECT_LIB_LIST is set in the project CMakeLIsts.txt
 configure_package_config_file(
   cmake/${PROJECT_NAME}Config.cmake.template
   ${_packageConfigFile}

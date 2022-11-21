@@ -4,16 +4,12 @@ set_property (DIRECTORY PROPERTY EP_BASE Dependencies)
 
 option(DOWNLOAD_DEPENDENCIES "Should dependencies be downloaded" OFF)
 foreach (SUPER_PROJ IN LISTS SUPER_BUILD_PROJECTS)
-ExternalProject_Add(${SUPER_PROJ}
-  SOURCE_DIR ${HIROOT}/${SUPER_PROJ}
-  BINARY_DIR ${HIROOT}/${SUPER_PROJ}/build
-  GIT_REPOSITORY https://github.com/johncger/rnd-jg-test2.git
-  GIT_TAG main
-  #CONFIGURE_COMMAND ./bootstrap.sh --with-libraries=atomic,date_time,filesystem,program_options,system,thread
-  #BUILD_COMMAND ./b2 link=static
-  #BUILD_IN_SOURCE 1
-  #INSTALL_COMMAND ""
-  )
+   ExternalProject_Add(${SUPER_PROJ}
+     SOURCE_DIR ${HIROOT}/${SUPER_PROJ}
+     BINARY_DIR ${HIROOT}/${SUPER_PROJ}/build
+     GIT_REPOSITORY https://github.com/johncger/rnd-jg-test2.git
+     GIT_TAG origin/develop
+   )
 endforeach()
 
 # Invoke the original project cmake
