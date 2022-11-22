@@ -33,9 +33,11 @@ include (cmake/project-properties.cmake)
 # Harvest projects this depends upon, empty list means none
 # ##############################################################################
 set(HI_EXTERNAL_PROJECT_LIST rnd-jg-test2)
-foreach (EXT_PROJ IN LISTS HI_EXTERNAL_PROJECT_LIST)
-   message(STATUS "Finding project: ${EXT_PROJ}")
-   find_package(${EXT_PROJ} QUIET)
+# Make the version number "" if not important
+set(HI_EXTERNAL_VERSION_LIST 0.1.0)
+foreach (EXT_PROJ PROJ_VER IN ZIP_LISTS HI_EXTERNAL_PROJECT_LIST HI_EXTERNAL_VERSION_LIST)
+   message(STATUS "Finding project: ${EXT_PROJ} Ver: ${PROJ_VER}")
+   find_package(${EXT_PROJ} ${PROJ_VER} QUIET)
    if (NOT ${${EXT_PROJ}_FOUND})
       message(WARNING "Project ${EXT_PROJ} not found. Will be made an external project.")
       list (APPEND SUPER_BUILD_PROJECTS ${EXT_PROJ})
@@ -124,6 +126,7 @@ set(_templateFile ${CMAKE_SOURCE_DIR}/cmake/${PROJECT_NAME}Config.cmake.template
 if (EXISTS ${_templateFile})
     message(STATUS "Template file ${_templateFile}")
 else()
+    message(STATUS "Creating template file ${_templateFile}")
     file(WRITE ${_templateFile}
                "@PACKAGE_INIT@\n"
                "include($""{CMAKE_CURRENT_LIST_DIR}/${PROJECT_NAME}.cmake)\n"
